@@ -10,7 +10,7 @@ async function ls(src) {
     for (const file of files) {
       if (!file.isFile()) continue
       const stat = await fsPromises.stat(path.join(src, file.name))
-      console.log(`${file.name} - ${path.parse(file.name).ext.substring(1)} - ${parseFloat(stat.size / 1024).toFixed(2)}kb`)
+      console.log(`${path.parse(file.name).name} - ${path.parse(file.name).ext.substring(1)} - ${parseFloat(stat.size / 1024).toFixed(2)}kb`)
     }
   }
   catch (e) {
